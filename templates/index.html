@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Aplikasi Prediksi Dana Bank</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+                Masukkan Total Dana Masuk Bulan ini:
+            </h1>
+
+            <form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+                <label for="Dana" class="mb-2">Dana</label>
+                <input
+                    type="number"
+                    name="Dana"
+                    placeholder="Dana"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-green-400
+                        to-blue-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PREDIKSI SEKARANG
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2xl mb-8">
+                    Hasil Prediksi dengan dana {{ dana }} adalah:
+                </h1>
+                <h2 class="text-5xl font-bold">{{ hasil }}</h2>
+            </div>
+            <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+                <img
+                    class="h-24 md:h-28"
+                    src="https://www.uny.ac.id/sites/www.uny.ac.id/files/lambang_0.png"
+                    alt="logo-uny"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="https://upload.wikimedia.org/wikipedia/id/4/44/Logo_PENS.png"
+                    alt="logo-pens"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="https://ksp.istts.ac.id/images/logo/istts_warna.png"
+                    alt="logo-stts"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="https://scontent-sin6-2.xx.fbcdn.net/v/t31.18172-8/10344082_694820573918545_3406268997566093570_o.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGh2QAbk6_7SzkzAf9mZsaL4knc-IrwoyXiSdz4ivCjJT_dkes6tnIKDq-PwvrtabU&_nc_ohc=EVS5nBtSSlIAX9zwA1J&_nc_ht=scontent-sin6-2.xx&oh=4846562e81eb6efd46e1728230dae5e7&oe=6175EB69"
+                    alt="logo-ikado"
+                />
+            </div>
+        </section>
+    </body>
+</html>
